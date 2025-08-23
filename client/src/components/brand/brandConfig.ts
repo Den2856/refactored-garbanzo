@@ -5,16 +5,19 @@ import type { BrandBenefitsProps } from "./BrandBenefits";
 import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
-// Resolves assets from brandConfig for Vite build
-const A = (p: string) => {
-  
-  if (/^(https?:|data:|blob:)/i.test(p)) return p;
+export const A = (p: string) => {
+  const cleaned = p
+    .trim()
+    .replace(/^['"]|['"]$/g, "")   // remove wrapping quotes
+    .replace(/\\/g, "/")           // win paths → /
+    .replace(/^\/+/, "");          // drop leading slash
 
-  const cleaned = p.replace(/^\/+/, "").replace(/^src\//, "");
+  // drop "src/" so "src/assets/..." → "assets/..."
+  const rel = cleaned.startsWith("src/") ? cleaned.slice(4) : cleaned;
 
-  return new URL(`../../${cleaned}`, import.meta.url).href;
+  // brandConfig.ts lives under src/components/..., so assets are at ../../assets/...
+  return new URL(`../../${rel}`, import.meta.url).href;
 };
-
 
 type Brand = {
   slug: string;
