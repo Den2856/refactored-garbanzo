@@ -34,27 +34,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 // 3) CORS
-const RAW_CLIENTS = (process.env.CLIENT_URLS || process.env.CLIENT_URL || 'http://localhost:5173')
-  .split(',')
-  .map(s => s.trim().replace(/\/$/, ''))
-  .filter(Boolean);
-
-const corsOptions: cors.CorsOptions = {
-  origin: (origin, cb) => {
-    if (!origin) return cb(null, true);
-    const norm = origin.replace(/\/$/, '');
-    let ok = RAW_CLIENTS.includes(norm);
-    if (!ok) {
-      try { ok = /\.vercel\.app$/.test(new URL(origin).hostname); } catch {}
-    }
-    return ok ? cb(null, true) : cb(new Error(`CORS blocked: ${origin}`));
-  },
-  credentials: true,
-  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization'],
-};
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(
+  cors({
+    origin: CLIENT_URL,
+    credentials: true,
+    methods: ['GET','POST','PUT', "PATCH" ,'DELETE','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization'],
+  })
+);
 
 // 0) Раздача статики из public
 app.use('/static/email-icons', express.static(path.join(__dirname, '../public/email-icons'))
