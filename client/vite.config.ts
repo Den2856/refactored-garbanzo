@@ -7,7 +7,7 @@ export default defineConfig({
     proxy: {
       // все запросы начинающиеся с /api/ будут прокситься на бэкенд
       '/api': {
-        target: 'http://localhost:4001',
+        target: 'https://refactored-garbanzo-3msd.onrender.com',
         changeOrigin: true,
       },
     },
