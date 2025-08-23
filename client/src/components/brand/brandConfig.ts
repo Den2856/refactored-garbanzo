@@ -5,18 +5,18 @@ import type { BrandBenefitsProps } from "./BrandBenefits";
 import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
-export const A = (p: string) => {
-  const cleaned = p
-    .trim()
-    .replace(/^['"]|['"]$/g, "")   // remove wrapping quotes
-    .replace(/\\/g, "/")           // win paths → /
-    .replace(/^\/+/, "");          // drop leading slash
+// Safe asset resolver for Vite
+export const A = (p?: string) => {
+  if (!p) return ""; // don't turn undefined into "/assets/undefined"
+  const s = p.trim().replace(/^['"]|['"]$/g, "");
+  // if it's already a full/served URL, keep as-is
+  if (/^(https?:|data:|blob:)/i.test(s) || s.startsWith("/assets/")) return s;
 
-  // drop "src/" so "src/assets/..." → "assets/..."
-  const rel = cleaned.startsWith("src/") ? cleaned.slice(4) : cleaned;
+  // normalize "/src/..." or "src/..."
+  const cleaned = s.replace(/^\/+/, "").replace(/^src\//, "");
 
-  // brandConfig.ts lives under src/components/..., so assets are at ../../assets/...
-  return new URL(`../../${rel}`, import.meta.url).href;
+  // brandConfig.ts is under src/components/... -> assets are ../../assets/...
+  return new URL(`../../${cleaned}`, import.meta.url).href;
 };
 
 type Brand = {
