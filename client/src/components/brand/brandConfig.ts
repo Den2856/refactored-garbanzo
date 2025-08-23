@@ -5,19 +5,11 @@ import type { BrandBenefitsProps } from "./BrandBenefits";
 import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
-// Safe asset resolver for Vite
-export const A = (p?: string) => {
-  if (!p) return ""; // don't turn undefined into "/assets/undefined"
-  const s = p.trim().replace(/^['"]|['"]$/g, "");
-  // if it's already a full/served URL, keep as-is
-  if (/^(https?:|data:|blob:)/i.test(s) || s.startsWith("/assets/")) return s;
-
-  // normalize "/src/..." or "src/..."
-  const cleaned = s.replace(/^\/+/, "").replace(/^src\//, "");
-
-  // brandConfig.ts is under src/components/... -> assets are ../../assets/...
-  return new URL(`../../${cleaned}`, import.meta.url).href;
-};
+export const A = (p: string) =>
+  new URL(
+    p.trim().replace(/^['"]+|['"]+$/g, ""), // remove wrapping " or '
+    import.meta.url
+  ).href;
 
 type Brand = {
   slug: string;
