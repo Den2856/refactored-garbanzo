@@ -33,27 +33,28 @@ app.use(express.json());
 // 2) Cookie‐парсер
 app.use(cookieParser());
 
-const allowList = (process.env.CLIENT_URL || "")
-  .split(",")
-  .map(s => s.trim())
+// 3) CORS
+const RAW_CLIENTS = (process.env.CLIENT_URLS || process.env.CLIENT_URL || 'http://localhost:5173')
+  .split(',')
+  .map(s => s.trim().replace(/\/$/, ''))
   .filter(Boolean);
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, cb) => {
     if (!origin) return cb(null, true);
-    const ok =
-      allowList.includes(origin) || 
-      /\.vercel\.app$/.test(origin);
+    const norm = origin.replace(/\/$/, '');
+    let ok = RAW_CLIENTS.includes(norm);
+    if (!ok) {
+      try { ok = /\.vercel\.app$/.test(new URL(origin).hostname); } catch {}
+    }
     return ok ? cb(null, true) : cb(new Error(`CORS blocked: ${origin}`));
   },
   credentials: true,
-  methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"],
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization'],
 };
-
-// 3) CORS
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); 
+app.options('*', cors(corsOptions));
 
 // 0) Раздача статики из public
 app.use('/static/email-icons', express.static(path.join(__dirname, '../public/email-icons'))
@@ -93,7 +94,6 @@ const sendEmail: RequestHandler = async (req, res) => {
   }
 
   try {
-    // письмо админу
     await transporter.sendMail({
       from:    process.env.FROM_EMAIL,
       to:      process.env.TO_EMAIL,
@@ -107,7 +107,6 @@ const sendEmail: RequestHandler = async (req, res) => {
     });
     res.json({ success: true });
 
-    // через 2 минуты отправить пользователю ответ по шаблону
     setTimeout(async () => {
       try {
         const html = buildApprovalHtml(
