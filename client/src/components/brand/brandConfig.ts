@@ -1,3 +1,4 @@
+// brandConfig.ts
 import type { BrandGalleryProps } from "./BrandGallery";
 import type { BrandHeroProps } from "./BrandHero";
 import type { BrandBannerProps } from "./BrandBanner";
@@ -5,16 +6,27 @@ import type { BrandBenefitsProps } from "./BrandBenefits";
 import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
-export const A = (p: string) =>
-  new URL(
-    // "/src/assets/gallery/x.webp" -> "assets/gallery/x.webp"
-    p.trim()
-      .replace(/^['"]|['"]$/g, "") // снять лишние кавычки
-      .replace(/^\/+/, "")         // убрать лидирующий /
-      .replace(/^src\//, ""),      // убрать префикс src/
-    // brandConfig.ts находится в src/components/... -> до src нужно подняться на два уровня
-    import.meta.url.replace(/\/components\/.*$/, "/") // базой остаётся файл модуля
-  ).href;
+
+// Resolves "/src/assets/..." (or "src/assets/...") to a built URL (/assets/<hash>)
+// Works with your folders: src/assets/{banner,benefits,chargers,evs,gallery,heroVids,...}
+const __files = import.meta.glob('../assets/**/*', { eager: true, as: 'url' });
+
+export const A = (p: string) => {
+  // keep external or already-built urls
+  const raw = p.trim().replace(/^['"]|['"]$/g, '');
+  if (/^(https?:|data:|blob:)/i.test(raw) || raw.startsWith('/assets/')) return raw;
+
+  // normalize to "assets/..."
+  const rel = raw.replace(/^\/+/, '').replace(/^src\//, '');
+
+  // brandConfig.ts is likely under src/components/...  -> keys look like "../assets/..."
+  const k1 = `../${rel}`;          // "assets/.../file.png" -> "../assets/.../file.png"
+  const k2 = `../../${rel}`;       // in case brandConfig is one level deeper
+  const k3 = `../../../${rel}`;    // belt & suspenders if deeper
+
+  return (__files[k1] as string) || (__files[k2] as string) || (__files[k3] as string) || raw;
+};
+
 
 type Brand = {
   slug: string;
@@ -39,7 +51,7 @@ export const BRANDS: Record<string, Brand> = {
       subheading: "Born for the Boldest",
       media: {
         kind: "video",
-        src: A("/assets/heroVids/mbVid.webm"),
+        src: A("/src/assets/heroVids/mbVid.webm"),
         poster: A("/src/assets/posters/mbPoster.webp"),
         autoPlay: true,
         loop: true,
