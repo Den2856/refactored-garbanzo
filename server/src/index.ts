@@ -33,15 +33,27 @@ app.use(express.json());
 // 2) Cookie‐парсер
 app.use(cookieParser());
 
+const allowList = (process.env.CLIENT_URL || "")
+  .split(",")
+  .map(s => s.trim())
+  .filter(Boolean);
+
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true);
+    const ok =
+      allowList.includes(origin) || 
+      /\.vercel\.app$/.test(origin);
+    return ok ? cb(null, true) : cb(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+  methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
+};
+
 // 3) CORS
-app.use(
-  cors({
-    origin: CLIENT_URL,
-    credentials: true,
-    methods: ['GET','POST','PUT', "PATCH" ,'DELETE','OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization'],
-  })
-);
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); 
 
 // 0) Раздача статики из public
 app.use('/static/email-icons', express.static(path.join(__dirname, '../public/email-icons'))
