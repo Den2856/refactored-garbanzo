@@ -63,7 +63,6 @@ export default function EVCard({ ev, idx = 0, animate = true }: EVCardProps) {
       initial={shouldAnimate ? "hidden" : false}
       whileInView={shouldAnimate ? "show" : undefined}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      // оптимизация рендеринга на GPU
       style={{ willChange: "transform, opacity" }}
     >
       {/* Badge */}
@@ -72,7 +71,7 @@ export default function EVCard({ ev, idx = 0, animate = true }: EVCardProps) {
       {/* Image */}
       <div className="overflow-hidden" onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
         <img
-          src={`/src/assets/evs/${ev.images[imgIndex]}`}
+          src={new URL(`/src/assets/evs/${ev.images[imgIndex]}`, import.meta.url).href}
           alt={ev.name}
           className="w-full object-cover"
           loading="lazy"
