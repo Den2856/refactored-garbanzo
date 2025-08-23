@@ -44,7 +44,7 @@ export default function BrandBenefits({
             <article key={i} className={`flex flex-col ${text}`}>
               <div className="rounded-xl overflow-hidden shadow-sm">
                 <img
-                  src={it.image}
+                  src={new URL((it.image), import.meta.url).href}
                   alt={it.alt}
                   className="w-full aspect-[4/3] object-cover"
                   loading={i > 0 ? "lazy" : "eager"}

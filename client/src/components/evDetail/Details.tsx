@@ -203,7 +203,7 @@ export default function DetailsPage() {
         <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-6 lg:space-y-0">
           <div className="flex flex-col gap-6">
             <h1 className="text-2xl sm:text-3xl font-semibold flex items-center gap-2">
-              <img src={`/src/assets/evs/logos/${logoSrc}`} alt={brandKey} className="h-8 w-auto" />
+              <img src={new URL(`/src/assets/evs/logos/${logoSrc}`, import.meta.url).href} alt={brandKey} className="h-8 w-auto" />
               {ev.name}
             </h1>
 
@@ -269,7 +269,7 @@ export default function DetailsPage() {
           <div className="lg:col-span-2 bg-white rounded-lg shadow-lg space-y-4 p-4">
             <StatusBadge available={ev.available} />
             <img
-              src={`/src/assets/evs/${mainImg}`}
+              src={new URL(`/src/assets/evs/${mainImg}`, import.meta.url).href}
               alt={ev.name}
               className="w-full object-cover rounded-lg"
             />
@@ -277,7 +277,7 @@ export default function DetailsPage() {
               {ev.images.map((img, i) => (
                 <img
                   key={i}
-                  src={`/src/assets/evs/${img}`}
+                  src={new URL(`/src/assets/evs/${img}`, import.meta.url).href}
                   onClick={() => setMainImg(img)}
                   className="w-fit h-16 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
                 />
