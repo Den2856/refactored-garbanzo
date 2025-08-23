@@ -34,7 +34,7 @@ export default function BrandBanner({
       <div className="mx-auto">
         <div 
           className="relative h-[380px] sm:h-[440px] md:h-[560px] lg:h-[640px]"
-          style={{ backgroundImage: `url(${bgImage})`, backgroundSize: bgSize, backgroundPosition: "center",}}
+          style={{ backgroundImage: `url(${import.meta.env.CLIENT_URL}${bgImage})`, backgroundSize: bgSize, backgroundPosition: "center",}}
         >
           {/* overlay */}
           <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${overlayOpacity})` }} />
