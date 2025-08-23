@@ -7,8 +7,13 @@ import type { BrandFAQProps } from "./BrandsFaq";
 
 export const A = (p: string) =>
   new URL(
-    p.trim().replace(/^['"]+|['"]+$/g, ""), // remove wrapping " or '
-    import.meta.url
+    // "/src/assets/gallery/x.webp" -> "assets/gallery/x.webp"
+    p.trim()
+      .replace(/^['"]|['"]$/g, "") // снять лишние кавычки
+      .replace(/^\/+/, "")         // убрать лидирующий /
+      .replace(/^src\//, ""),      // убрать префикс src/
+    // brandConfig.ts находится в src/components/... -> до src нужно подняться на два уровня
+    import.meta.url.replace(/\/components\/.*$/, "/") // базой остаётся файл модуля
   ).href;
 
 type Brand = {
