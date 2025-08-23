@@ -1,4 +1,3 @@
-// brandConfig.ts
 import type { BrandGalleryProps } from "./BrandGallery";
 import type { BrandHeroProps } from "./BrandHero";
 import type { BrandBannerProps } from "./BrandBanner";
@@ -6,7 +5,6 @@ import type { BrandBenefitsProps } from "./BrandBenefits";
 import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
-// helper: resolve asset at build time (Vite will hash & copy)
 const A = (p: string) => new URL(p, import.meta.url).href;
 
 type Brand = {
