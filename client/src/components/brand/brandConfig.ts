@@ -5,7 +5,16 @@ import type { BrandBenefitsProps } from "./BrandBenefits";
 import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
-const A = (p: string) => new URL(p, import.meta.url).href;
+// Resolves assets from brandConfig for Vite build
+const A = (p: string) => {
+  
+  if (/^(https?:|data:|blob:)/i.test(p)) return p;
+
+  const cleaned = p.replace(/^\/+/, "").replace(/^src\//, "");
+
+  return new URL(`../../${cleaned}`, import.meta.url).href;
+};
+
 
 type Brand = {
   slug: string;
