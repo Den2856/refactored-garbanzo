@@ -31,7 +31,7 @@ export const BRANDS: Record<string, Brand> = {
       subheading: "Born for the Boldest",
       media: {
         kind: "video",
-        src: A("/src/assets/heroVids/mbVid.webm"),
+        src: A("/heroVids/mbVid.webm"),
         poster: A("/src/assets/posters/mbPoster.webp"),
         autoPlay: true,
         loop: true,
