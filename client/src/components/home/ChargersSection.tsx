@@ -41,7 +41,7 @@ export default function ChargersSection(): JSX.Element {
             <div key={ch._id} className="space-y-4">
               <div className="overflow-hidden">
                 <img
-                  src={new URL(`/src/assets/chargers/${ch.imageUrl}`, import.meta.url).href}
+                  src={`/chargers/${ch.imageUrl}`}
                   alt={ch.title}
                   className="w-full h-full object-cover"
                 />
