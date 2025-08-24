@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
-import GoogleIcon from '../assets/google.svg'
+import GoogleIcon from '../../public/google.svg'
 
 export default function Register() {
   const navigate = useNavigate()

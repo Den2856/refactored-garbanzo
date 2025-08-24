@@ -36,7 +36,7 @@ export default function Login() {
       <div
         className="
           min-h-screen w-full flex items-center justify-center
-          bg-[url('src/assets/bg.svg')] bg-no-repeat bg-cover bg-center
+          bg-[url('/bg.svg')] bg-no-repeat bg-cover bg-center
           px-4 sm:px-6 md:px-8 lg:px-10 xl:px-24
         "
       >
