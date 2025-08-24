@@ -5,7 +5,7 @@ import BrowseByBrand from '../components/home/BrowseByBrand'
 import ReservationForm from "../components/home/ReservationForm"
 import PopularEvs from "../components/home/PopularEvs"
 
-const ASSET_PATH = '/src/assets/evs/logos'
+const ASSET_PATH = '/evs/logos'
 
 const brands = [
   { name: 'Tesla',  logo: `${ASSET_PATH}/tesla.svg`,  href: '/cars/tesla' },
