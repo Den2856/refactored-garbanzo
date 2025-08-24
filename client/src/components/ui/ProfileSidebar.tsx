@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { User as UserIcon, Bell, LogOut, ChevronRight } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
-import defaultAvatarUrl from '../../assets/robot.jpeg'
+import defaultAvatarUrl from '../../../public/robot.jpeg'
 
 export default function ProfileSidebar({ onClose }: { onClose: () => void }) {
-  const { user, token, logout } = useAuth()        // ← хук только внутри компонента
+  const { user, token, logout } = useAuth()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [muted, setMuted] = useState(false)
