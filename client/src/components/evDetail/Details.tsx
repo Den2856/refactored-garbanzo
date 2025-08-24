@@ -203,7 +203,7 @@ export default function DetailsPage() {
         <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-6 lg:space-y-0">
           <div className="flex flex-col gap-6">
             <h1 className="text-2xl sm:text-3xl font-semibold flex items-center gap-2">
-              <img src={new URL(`/src/assets/evs/logos/${logoSrc}`, import.meta.url).href} alt={brandKey} className="h-8 w-auto" />
+              <img src={`/evs/logos/${logoSrc}`} alt={brandKey} className="h-8 w-auto" />
               {ev.name}
             </h1>
 
@@ -236,7 +236,7 @@ export default function DetailsPage() {
                   inCompare
                     ? 'Remove from compare'
                     : compareCount >= MAX_COMPARE
-                    ? `Максимум ${MAX_COMPARE} авто`
+                    ? `MAX ${MAX_COMPARE} CARS`
                     : 'Add to compare'
                 }
               >
@@ -269,7 +269,7 @@ export default function DetailsPage() {
           <div className="lg:col-span-2 bg-white rounded-lg shadow-lg space-y-4 p-4">
             <StatusBadge available={ev.available} />
             <img
-              src={new URL(`/src/assets/evs/${mainImg}`, import.meta.url).href}
+              src={`/evs/${mainImg}`}
               alt={ev.name}
               className="w-full object-cover rounded-lg"
             />

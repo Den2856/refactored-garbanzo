@@ -117,7 +117,7 @@ export default function ReservationForm({ showImage }: ReservationFormProps) {
       {showImage && (
         <div className="w-full md:w-1/2 h-full flex items-center justify-center">
           <img
-            src="src/assets/ev-car.png"
+            src="/ev-car.png"
             alt="EV Car"
             className="rounded-lg w-full object-contain"
           />
