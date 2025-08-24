@@ -123,7 +123,7 @@ export const BRANDS: Record<string, Brand> = {
       subheading: "Order online for touchless delivery.",
       media: {
         kind: "image",
-        src: A("/src/assets/heroVids/posters/teslaPoster.png"),
+        src: "/heroVids/posters/teslaPoster.png",
         alt: "Tesla Model 3"
       },
       ctas: [
@@ -140,13 +140,13 @@ export const BRANDS: Record<string, Brand> = {
       widthPattern: [2, 1, 2, 1],
       rowPattern: [2, 2, 2, 2],
       items: [
-        { src: A("/src/assets/gallery/tsCard1.webp"), alt: "Tesla LED headlights close-up",
+        { src: "/gallery/tsCard1.webp", alt: "Tesla LED headlights close-up",
           caption: "Sharper LED headlights and a sculpted front fascia." },
-        { src: A("/src/assets/gallery/tsCard2.webp"), alt: "Tesla interior with central touchscreen",
+        { src: "/gallery/tsCard2.webp", alt: "Tesla interior with central touchscreen",
           caption: "Minimalist cabin with a large central touchscreen." },
-        { src: A("/src/assets/gallery/tsCard3.webp"), alt: "Tesla rear three-quarter view",
+        { src: "/gallery/tsCard3.webp", alt: "Tesla rear three-quarter view",
           caption: "Continuous light signature and aero-optimized silhouette." },
-        { src: A("/src/assets/gallery/tsCard4.webp"), alt: "Tesla aero wheels close-up",
+        { src: "/gallery/tsCard4.webp", alt: "Tesla aero wheels close-up",
           caption: "Aerodynamic wheel designs developed for efficiency." }
       ]
     },
@@ -158,7 +158,7 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Drive the future with the all-new Tesla Model 3.",
       ctaLabel: "Order Now",
       ctaHref: "/tesla/model-3",
-      bgImage: A("/src/assets/banner/tesla.png"),
+      bgImage: "/banner/tesla.png",
       bgSize: "cover",
     },
 
@@ -167,19 +167,19 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Superchargers, app-first ownership and home charging.",
       items: [
         {
-          image: A("/src/assets/benefits/tesla-1.avif"),
+          image: "/benefits/tesla-1.avif",
           alt: "Tesla at Supercharger",
           title: "Supercharger network.",
           text: "Thousands of high-power Superchargers with automatic routing and preconditioning."
         },
         {
-          image: A("/src/assets/benefits/tesla-2.webp"),
+          image: "/benefits/tesla-2.webp",
           alt: "Tesla mobile app",
           title: "App-first ownership.",
           text: "Remote control, climate preconditioning, charging limits and trip planning — all in the app."
         },
         {
-          image: A("/src/assets/benefits/tesla-3.avif"),
+          image: "/benefits/tesla-3.avif",
           alt: "Tesla home charging",
           title: "Convenient at home.",
           text: "Wall Connector for fast overnight charging and scheduled departure to start every day at 100%."
@@ -216,8 +216,8 @@ export const BRANDS: Record<string, Brand> = {
       subheading: "Business athlete, redefined.",
       media: {
         kind: "video",
-        src: A("/src/assets/heroVids/bmwVid.webm"),
-        poster: A("/src/assets/posters/mboster.webp"),
+        src: "/heroVids/bmwVid.webm",
+        poster: "/posters/mboster.webp",
         autoPlay: true,
         loop: true,
         muted: true,
@@ -233,13 +233,13 @@ export const BRANDS: Record<string, Brand> = {
       widthPattern: [2, 1, 2, 1],
       rowPattern: [2, 2, 2, 2],
       items: [
-        { src: A("/src/assets/gallery/bmwCard3.jpg"), alt: "BMW illuminated grille and headlights",
+        { src: "/gallery/bmwCard3.jpg", alt: "BMW illuminated grille and headlights",
           caption: "Striking front with illuminated contour and precise LED headlights." },
-        { src: A("/src/assets/gallery/bmwCard1.jpg"), alt: "BMW i5 interior with Curved Display",
+        { src: "/gallery/bmwCard1.jpg", alt: "BMW i5 interior with Curved Display",
           caption: "Curved Display and an interaction light bar across the dashboard." },
-        { src: A("/src/assets/gallery/bmwCard4.jpg"), alt: "BMW i5 rear three-quarter view",
+        { src: "/gallery/bmwCard4.jpg", alt: "BMW i5 rear three-quarter view",
           caption: "Slim L-shaped taillights and a dynamic roofline." },
-        { src: A("/src/assets/gallery/bmwCard2.webp"), alt: "BMW aerodynamic wheel close-up",
+        { src: "/gallery/bmwCard2.webp", alt: "BMW aerodynamic wheel close-up",
           caption: "Aerodynamic wheel designs that reduce drag and noise." }
       ]
     },
@@ -251,7 +251,7 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "The all-new BMW i4: Luxury, performance, and electric power.",
       ctaLabel: "Build Your i4",
       ctaHref: "/evs/bmw-i4",
-      bgImage: A("/src/assets/banner/bmw.webp"),
+      bgImage: "/banner/bmw.webp",
       bgSize: "cover",
     },
 
@@ -260,19 +260,19 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Complimentary charging, one app and home convenience.",
       items: [
         {
-          image: A("/src/assets/benefits/bmw-1.jpg"),
+          image: "/benefits/bmw-1.jpg",
           alt: "BMW charging at night",
           title: "Complimentary charging.",
           text: "Save with offers on major networks and enjoy quick authentication with Plug & Charge."
         },
         {
-          image: A("/src/assets/benefits/bmw-2.jpg"),
+          image: "/benefits/bmw-2.jpg",
           alt: "My BMW app",
           title: "One app, countless stations.",
           text: "Find, start and pay for charging from the My BMW App across large partner networks."
         },
         {
-          image: A("/src/assets/benefits/bmw-3.jpg"),
+          image: "/benefits/bmw-3.jpg",
           alt: "BMW at home",
           title: "Convenience at home.",
           text: "Charge from a household outlet or install a BMW Wallbox with our trusted partner."
@@ -309,7 +309,7 @@ export const BRANDS: Record<string, Brand> = {
       subheading: "Design meets electric performance.",
       media: {
         kind: "image",
-        src: A("/src/assets/heroVids/posters/audiPoster.avif"),
+        src: "/heroVids/posters/audiPoster.avif",
         alt: "Audi RS e-tron GT",
       },
       ctas: [],
@@ -325,13 +325,13 @@ export const BRANDS: Record<string, Brand> = {
       widthPattern: [2, 1, 2, 1],
       rowPattern: [2, 2, 2, 2],
       items: [
-        { src: A("/src/assets/gallery/audiCard1.webp"), alt: "Audi Matrix LED close-up",
+        { src: "/gallery/audiCard1.webp", alt: "Audi Matrix LED close-up",
           caption: "Matrix LED lighting signature with dynamic turn indicators." },
-        { src: A("/src/assets/gallery/audiCard2.avif"), alt: "Audi Virtual Cockpit interior",
+        { src: "/gallery/audiCard2.avif", alt: "Audi Virtual Cockpit interior",
           caption: "Virtual Cockpit and MMI touch response with haptic feedback." },
-        { src: A("/src/assets/gallery/audiCard3.webp"), alt: "Audi rear light bar",
+        { src: "/gallery/audiCard3.webp", alt: "Audi rear light bar",
           caption: "Continuous rear light bar emphasizes width and stance." },
-        { src: A("/src/assets/gallery/audiCard4.jpg"), alt: "Aero wheel close-up",
+        { src: "/gallery/audiCard4.jpg", alt: "Aero wheel close-up",
           caption: "Aero-optimized wheels for efficiency and presence." }
       ]
     },
@@ -341,7 +341,7 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Limited-time lease offers on the 2025 Audi Q8 e-tron.",
       ctaLabel: "See All Offers",
       ctaHref: "/evs/audi-q8-e-tron",
-      bgImage: A("/src/assets/banner/audi.avif"),
+      bgImage: "/banner/audi.avif",
       bgSize: "cover",
     },
 
@@ -350,19 +350,19 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Networked charging, myAudi app and home convenience.",
       items: [
         {
-          image: A("/src/assets/benefits/audi-1.avif"),
+          image: "/benefits/audi-1.avif",
           alt: "Audi at fast charger",
           title: "Charging made simple.",
           text: "Access major charging networks and use Plug & Charge where available."
         },
         {
-          image: A("/src/assets/benefits/audi-2.jpg"),
+          image: "/benefits/audi-2.jpg",
           alt: "myAudi app on phone",
           title: "myAudi app.",
           text: "Plan routes with charging, precondition the cabin and manage charging limits remotely."
         },
         {
-          image: A("/src/assets/benefits/audi-3.jpg"),
+          image: "/benefits/audi-3.jpg",
           alt: "Audi home wallbox",
           title: "Convenient at home.",
           text: "Install a Level 2 wallbox and schedule overnight charging from the car or app."
