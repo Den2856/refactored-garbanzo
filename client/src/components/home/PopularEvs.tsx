@@ -11,7 +11,7 @@ export default function PopularEvs() {
   const [animate, setAnimate] = useState(false)
 
   useEffect(() => {
-    fetch('/api/evs/popular')
+    fetch(`${import.meta.env.VITE_API_URL}/api/evs/popular`)
       .then(r => r.json())
       .then((data: EV[]) => {
         setEvs(data)
