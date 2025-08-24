@@ -1,4 +1,4 @@
-import HeroImg from '../../assets/heroCar.png'
+import HeroImg from '../../../public/heroCar.png'
 
 export default function HeroStats() {
   return (
