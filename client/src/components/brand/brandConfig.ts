@@ -6,8 +6,6 @@ import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
 
-const A = (p: string) => new URL(p, import.meta.url).href;
-
 type Brand = {
   slug: string;
   name: string;
@@ -48,13 +46,13 @@ export const BRANDS: Record<string, Brand> = {
       widthPattern: [2, 1, 2, 1],
       rowPattern: [2, 2, 2, 2],
       items: [
-        { src: A("/src/assets/gallery/mbCard4.webp"), alt: "EQS SUV headlights close-up",
+        { src: "/gallery/mbCard4.webp", alt: "EQS SUV headlights close-up",
           caption: "Striking EQS SUV design feature: new radiator trim with chrome applications and upright star." },
-        { src: A("/src/assets/gallery/mbCard1.webp"), alt: "EQS interior with Hyperscreen",
+        { src: "/gallery/mbCard1.webp", alt: "EQS interior with Hyperscreen",
           caption: "Red gold elements in the interior hint at the electric character." },
-        { src: A("/src/assets/gallery/mbCard2.webp"), alt: "LED light strip at rear",
+        { src: "/gallery/mbCard2.webp", alt: "LED light strip at rear",
           caption: "LED light strip at front and rear for high recognition by day and night." },
-        { src: A("/src/assets/gallery/mbCard3.webp"), alt: "Aero wheel close-up",
+        { src: "/gallery/mbCard3.webp", alt: "Aero wheel close-up",
           caption: "Wheel designs specially developed for Mercedes-EQ electric cars." }
       ]
     },
@@ -66,7 +64,7 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Drive the all-new Mercedes EQE and experience unmatched performance.",
       ctaLabel: "Discover More",
       ctaHref: "/mercedes-benz/eqe",
-      bgImage: A("/src/assets/banner/mb.webp"),
+      bgImage: "/banner/mb.webp",
       bgSize: "cover",
     },
 
@@ -75,19 +73,19 @@ export const BRANDS: Record<string, Brand> = {
       subtitle: "Plug & Charge, guided navigation and home solutions.",
       items: [
         {
-          image: A("/src/assets/benefits/mb-1.jpg"),
+          image: "/benefits/mb-1.jpg",
           alt: "Mercedes at fast charger",
           title: "Plug & Charge simplicity.",
           text: "Authenticate automatically at compatible stations and just plug in — charging starts instantly."
         },
         {
-          image: A("/src/assets/benefits/mb-2.webp"),
+          image: "/benefits/mb-2.webp",
           alt: "Mercedes me Charge app",
           title: "One app for many networks.",
           text: "Mercedes me Charge brings access to major networks and transparent pricing in one place."
         },
         {
-          image: A("/src/assets/benefits/mb-3.avif"),
+          image: "/benefits/mb-3.avif",
           alt: "Mercedes home wallbox",
           title: "Home charging made easy.",
           text: "Install a wallbox for overnight charging and manage charging schedules right from the car or app."

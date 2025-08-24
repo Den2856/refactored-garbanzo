@@ -120,7 +120,6 @@ export default function DetailsPage() {
     }
   }
 
-  // Toggle compare (с лимитом и тостом)
   async function handleToggleCompare() {
     if (!ev) return
     if (!isAuthenticated || !user) {
@@ -132,7 +131,6 @@ export default function DetailsPage() {
       setLoadingCmp(true)
 
       if (inCompare) {
-        // снять из сравнения
         await axios.delete(`${API}/api/users/${user.id}/compare/${evId}`)
         setInCompare(false)
         setCompareCount((n) => Math.max(0, n - 1))
