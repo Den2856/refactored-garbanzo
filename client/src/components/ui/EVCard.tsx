@@ -71,7 +71,7 @@ export default function EVCard({ ev, idx = 0, animate = true }: EVCardProps) {
       {/* Image */}
       <div className="overflow-hidden" onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
         <img
-          src={new URL(`/src/assets/evs/${ev.images[imgIndex]}`, import.meta.url).href}
+          src={`/evs/${ev.images[imgIndex]}`}
           alt={ev.name}
           className="w-full object-cover"
           loading="lazy"

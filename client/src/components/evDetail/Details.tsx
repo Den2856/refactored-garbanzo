@@ -277,7 +277,7 @@ export default function DetailsPage() {
               {ev.images.map((img, i) => (
                 <img
                   key={i}
-                  src={new URL(`/src/assets/evs/${img}`, import.meta.url).href}
+                  src={`/evs/${img}`}
                   onClick={() => setMainImg(img)}
                   className="w-fit h-16 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
                 />
