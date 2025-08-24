@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
-import defaultAvatarUrl from '../assets/robot.jpeg'
-import Logo from '../assets/logo.svg'
+import defaultAvatarUrl from '../../public/robot.jpeg'
+import Logo from '../../public/logo.svg'
 import ProfileSidebar from './ui/ProfileSidebar'
 
 export default function Header() {
