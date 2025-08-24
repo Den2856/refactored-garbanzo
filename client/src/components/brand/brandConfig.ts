@@ -1,4 +1,3 @@
-// brandConfig.ts
 import type { BrandGalleryProps } from "./BrandGallery";
 import type { BrandHeroProps } from "./BrandHero";
 import type { BrandBannerProps } from "./BrandBanner";
@@ -7,26 +6,7 @@ import type { BrandStatsProps } from "./BrandStats";
 import type { BrandFAQProps } from "./BrandsFaq";
 
 
-// Resolves "/src/assets/..." (or "src/assets/...") to a built URL (/assets/<hash>)
-// Works with your folders: src/assets/{banner,benefits,chargers,evs,gallery,heroVids,...}
-const __files = import.meta.glob('../assets/**/*', { eager: true, as: 'url' });
-
-export const A = (p: string) => {
-  // keep external or already-built urls
-  const raw = p.trim().replace(/^['"]|['"]$/g, '');
-  if (/^(https?:|data:|blob:)/i.test(raw) || raw.startsWith('/assets/')) return raw;
-
-  // normalize to "assets/..."
-  const rel = raw.replace(/^\/+/, '').replace(/^src\//, '');
-
-  // brandConfig.ts is likely under src/components/...  -> keys look like "../assets/..."
-  const k1 = `../${rel}`;          // "assets/.../file.png" -> "../assets/.../file.png"
-  const k2 = `../../${rel}`;       // in case brandConfig is one level deeper
-  const k3 = `../../../${rel}`;    // belt & suspenders if deeper
-
-  return (__files[k1] as string) || (__files[k2] as string) || (__files[k3] as string) || raw;
-};
-
+const A = (p: string) => new URL(p, import.meta.url).href;
 
 type Brand = {
   slug: string;
