@@ -294,7 +294,7 @@ function SpecTable({
                 return (
                   <div
                     key={`${row.key}-${ev._id}`}
-                    className={`bg-white p-4 text-sm ${!equal ? "bg-orange-100" : ""}`}
+                    className={`bg-white p-4 text-sm ${!equal ? "bg-orange-50" : ""}`}
                   >
                     {val as ReactNode}
                   </div>
