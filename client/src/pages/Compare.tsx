@@ -154,7 +154,7 @@ function MobileCard({ ev, onRemove }: { ev: EV; onRemove: () => void }) {
       </div>
       {ev.images?.[0] && (
         <img
-          src={`/src/assets/evs/${ev.images[0]}`}
+          src={`/evs/${ev.images[0]}`}
           alt={ev.name}
           className="w-full h-48 object-cover"
           loading="lazy"
@@ -263,7 +263,7 @@ function SpecTable({
             </div>
             {ev.images?.[0] && (
               <img
-                src={`/src/assets/evs/${ev.images[0]}`}
+                src={`/evs/${ev.images[0]}`}
                 alt={ev.name}
                 className="w-full h-40 object-cover mt-3 rounded-md"
                 loading="lazy"
